@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechLaptop – Admin Panel</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+<div class="admin-layout">
+
+  <!-- ── SIDEBAR ──────────────────────────────────────────── -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="sidebar-logo-icon">💻</span>
+      <div class="sidebar-logo-text">
+        TechLaptop
+        <div class="sidebar-logo-sub">Admin Panel</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Menu</div>
+
+      <button class="sidebar-link active" data-page="dashboard">
+        <span class="sidebar-link-icon">📊</span>
+        <span>Dashboard</span>
+      </button>
+
+      <button class="sidebar-link" data-page="products">
+        <span class="sidebar-link-icon">📦</span>
+        <span>Sản Phẩm</span>
+      </button>
+
+      <button class="sidebar-link" data-page="orders">
+        <span class="sidebar-link-icon">📋</span>
+        <span>Đơn Hàng</span>
+      </button>
+
+      <div class="sidebar-section-label" style="margin-top:16px">Khác</div>
+
+      <a href="index.html" class="sidebar-link" target="_blank">
+        <span class="sidebar-link-icon">🌐</span>
+        <span>Xem Cửa Hàng</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">v1.0 · TechLaptop 2025</div>
+  </aside>
+
+  <!-- ── MAIN CONTENT ───────────────────────────────────────── -->
+  <main class="admin-main">
+
+    <!-- Top Bar -->
+    <div class="topbar">
+      <div>
+        <div class="topbar-title" id="topbarTitle">Dashboard</div>
+        <div class="topbar-subtitle" id="topbarSub">Tổng quan hệ thống</div>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn btn-primary btn-sm" id="viewStoreBtn">🌐 Xem cửa hàng</button>
+        <div class="topbar-user">
+          <div class="topbar-avatar">A</div>
+          <div>
+            <div class="topbar-user-name">Admin</div>
+            <div class="topbar-user-role">Quản trị viên</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content">
+
+      <!-- ════════════════════════════════════════════════════
+           PAGE: DASHBOARD
+           ════════════════════════════════════════════════════ -->
+      <div class="page active" id="page-dashboard">
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-info">
+              <div class="stat-card-label">Tổng Sản Phẩm</div>
+              <div class="stat-card-value" id="statProducts">—</div>
+              <div class="stat-card-trend up">↑ đang hiển thị</div>
+            </div>
+            <div class="stat-card-icon icon-blue">📦</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-info">
+              <div class="stat-card-label">Tổng Tồn Kho</div>
+              <div class="stat-card-value" id="statStock">—</div>
+              <div class="stat-card-trend up">↑ cái</div>
+            </div>
+            <div class="stat-card-icon icon-green">📊</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-info">
+              <div class="stat-card-label">Đơn Hàng</div>
+              <div class="stat-card-value" id="statOrders">—</div>
+              <div class="stat-card-trend up">↑ đơn hàng</div>
+            </div>
+            <div class="stat-card-icon icon-yellow">📋</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-info">
+              <div class="stat-card-label">Doanh Thu</div>
+              <div class="stat-card-value" id="statRevenue" style="font-size:18px">—</div>
+              <div class="stat-card-trend up">↑ tổng cộng</div>
+            </div>
+            <div class="stat-card-icon icon-cyan">💰</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-info">
+              <div class="stat-card-label">Hết Hàng</div>
+              <div class="stat-card-value" id="statOutOfStock">—</div>
+              <div class="stat-card-trend down">⚠ cần nhập thêm</div>
+            </div>
+            <div class="stat-card-icon icon-red">⚠️</div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="window.adminNavigate('products')">
+            + Thêm sản phẩm mới
+          </button>
+          <button class="btn btn-outline" onclick="window.adminNavigate('orders')">
+            📋 Xem đơn hàng
+          </button>
+          <a href="index.html" target="_blank" class="btn btn-outline">
+            🌐 Cửa hàng khách
+          </a>
+        </div>
+
+        <!-- Recent Products -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Sản Phẩm Gần Đây</div>
+              <div class="card-subtitle">8 sản phẩm mới nhất trong kho</div>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="window.adminNavigate('products')">Xem tất cả →</button>
+          </div>
+          <div class="mini-products-grid" id="dashboardProducts">
+            <!-- Rendered by admin.js -->
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ════════════════════════════════════════════════════
+           PAGE: PRODUCTS
+           ════════════════════════════════════════════════════ -->
+      <div class="page" id="page-products">
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Danh Sách Sản Phẩm</div>
+              <div class="card-subtitle">Quản lý toàn bộ laptop trong hệ thống</div>
+            </div>
+            <div class="toolbar">
+              <div class="search-field">
+                <span class="search-field-icon">🔍</span>
+                <input type="text" id="adminSearch" placeholder="Tìm sản phẩm..." />
+              </div>
+              <select class="filter-select" id="adminCategoryFilter">
+                <option value="all">Tất cả danh mục</option>
+                <option value="van-phong">Văn Phòng</option>
+                <option value="gaming">Gaming</option>
+                <option value="do-hoa">Đồ Họa</option>
+              </select>
+              <button class="btn btn-primary" id="addProductBtn">+ Thêm Mới</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Sản Phẩm</th>
+                  <th>Danh Mục</th>
+                  <th>Giá</th>
+                  <th>Tồn Kho</th>
+                  <th>Đánh Giá</th>
+                  <th>Nổi Bật</th>
+                  <th>Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody id="productsTableBody">
+                <!-- Rendered by admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ════════════════════════════════════════════════════
+           PAGE: ORDERS
+           ════════════════════════════════════════════════════ -->
+      <div class="page" id="page-orders">
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Đơn Hàng</div>
+              <div class="card-subtitle">Danh sách đơn hàng từ khách hàng</div>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="location.reload()">↻ Làm mới</button>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mã Đơn</th>
+                  <th>Khách Hàng</th>
+                  <th>Sản Phẩm</th>
+                  <th>Tổng Tiền</th>
+                  <th>Trạng Thái</th>
+                  <th>Thời Gian / Cập Nhật</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTableBody">
+                <!-- Rendered by admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /page-content -->
+  </main>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     PRODUCT ADD/EDIT MODAL
+     ════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="productModalOverlay">
+  <div class="modal" style="max-width:720px">
+    <div class="modal-header">
+      <div class="modal-title" id="productModalTitle">Thêm Sản Phẩm Mới</div>
+      <button class="modal-close" id="productModalClose">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <form id="productForm">
+        <div class="form-grid">
+
+          <!-- Name -->
+          <div class="form-group full">
+            <label class="form-label" for="fName">Tên Sản Phẩm *</label>
+            <input class="form-input" id="fName" placeholder='MacBook Pro 16" M3 Pro' required />
+          </div>
+
+          <!-- Brand & Category -->
+          <div class="form-group">
+            <label class="form-label" for="fBrand">Thương Hiệu *</label>
+            <input class="form-input" id="fBrand" placeholder="Apple, Dell, ASUS..." required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fCategory">Danh Mục *</label>
+            <select class="form-select" id="fCategory" required>
+              <option value="van-phong">Văn Phòng</option>
+              <option value="gaming">Gaming</option>
+              <option value="do-hoa">Đồ Họa</option>
+            </select>
+          </div>
+
+          <!-- Price -->
+          <div class="form-group">
+            <label class="form-label" for="fPrice">Giá Bán (VND) *</label>
+            <input class="form-input" id="fPrice" type="number" min="0" placeholder="32990000" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fOriginalPrice">Giá Gốc (VND)</label>
+            <input class="form-input" id="fOriginalPrice" type="number" min="0" placeholder="35990000" />
+          </div>
+
+          <!-- Specs -->
+          <div class="form-group">
+            <label class="form-label" for="fCpu">CPU</label>
+            <input class="form-input" id="fCpu" placeholder="Intel Core i7-13700H" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fRam">RAM</label>
+            <input class="form-input" id="fRam" placeholder="16GB DDR5" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fStorage">Lưu Trữ</label>
+            <input class="form-input" id="fStorage" placeholder="512GB SSD" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fDisplay">Màn Hình</label>
+            <input class="form-input" id="fDisplay" placeholder='15.6" FHD 144Hz' />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fBattery">Pin</label>
+            <input class="form-input" id="fBattery" placeholder="10 giờ" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fWeight">Cân Nặng</label>
+            <input class="form-input" id="fWeight" placeholder="1.5 kg" />
+          </div>
+
+          <!-- Stock & Rating -->
+          <div class="form-group">
+            <label class="form-label" for="fStock">Tồn Kho</label>
+            <input class="form-input" id="fStock" type="number" min="0" placeholder="10" value="10" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fRating">Đánh Giá (1–5)</label>
+            <input class="form-input" id="fRating" type="number" min="1" max="5" step="0.1" placeholder="4.5" value="4.5" />
+          </div>
+
+          <!-- Featured -->
+          <div class="form-group" style="grid-column:1/-1;display:flex;align-items:center;gap:10px">
+            <input type="checkbox" id="fFeatured" style="width:18px;height:18px;cursor:pointer" />
+            <label class="form-label" for="fFeatured" style="cursor:pointer;margin:0">
+              ⭐ Đánh dấu là sản phẩm nổi bật (hiển thị badge HOT)
+            </label>
+          </div>
+
+          <!-- Description -->
+          <div class="form-group full">
+            <label class="form-label" for="fDescription">Mô Tả Sản Phẩm</label>
+            <textarea class="form-textarea" id="fDescription" placeholder="Mô tả chi tiết sản phẩm..."></textarea>
+          </div>
+
+          <!-- Gradient Color -->
+          <div class="form-group full">
+            <label class="form-label">Màu Card Sản Phẩm</label>
+            <div class="gradient-picker-row" id="gradientChips"></div>
+            <div class="gradient-preview" id="gradientPreview">💻</div>
+            <div class="form-hint">Chọn màu gradient cho card hiển thị trên website</div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-outline" id="cancelProductBtn">Hủy</button>
+      <button class="btn btn-success" onclick="document.getElementById('productForm').dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}))">
+        💾 Lưu Sản Phẩm
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     DELETE CONFIRM MODAL
+     ════════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="deleteModalOverlay">
+  <div class="modal confirm-modal">
+    <div class="modal-header">
+      <div class="modal-title">Xác Nhận Xóa</div>
+      <button class="modal-close" id="deleteModalClose">✕</button>
+    </div>
+    <div class="confirm-body">
+      <div class="confirm-icon">🗑️</div>
+      <h3>Xóa sản phẩm này?</h3>
+      <p>Bạn sắp xóa sản phẩm <strong id="deleteProductName"></strong>. Hành động này không thể hoàn tác!</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" id="cancelDeleteBtn">Hủy bỏ</button>
+      <button class="btn btn-danger" id="confirmDeleteBtn">🗑 Xóa vĩnh viễn</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── TOAST ──────────────────────────────────────────────── -->
+<div class="toast-container" id="toastContainer"></div>
+
+
+<!-- ── SCRIPTS ────────────────────────────────────────────── -->
+<script src="js/data.js"></script>
+<script src="js/admin.js"></script>
+<script>
+  // Global helpers for inline onclick handlers
+  window.adminNavigate = function(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + page)?.classList.add('active');
+    document.querySelectorAll('.sidebar-link').forEach(l => {
+      l.classList.toggle('active', l.dataset.page === page);
+    });
+    const titles = {
+      dashboard: { title: 'Dashboard', sub: 'Tổng quan hệ thống' },
+      products:  { title: 'Quản Lý Sản Phẩm', sub: 'Thêm, sửa, xóa laptop' },
+      orders:    { title: 'Quản Lý Đơn Hàng', sub: 'Theo dõi đơn hàng của khách' },
+    };
+    const t = titles[page] || titles.dashboard;
+    document.getElementById('topbarTitle').textContent = t.title;
+    document.getElementById('topbarSub').textContent = t.sub;
+    // Reopen the product modal if navigating to products and clicking add
+    if (page === 'products') {
+      document.getElementById('addProductBtn').focus();
+    }
+  };
+</script>
+</body>
+</html>

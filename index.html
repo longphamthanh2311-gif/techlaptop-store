@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechLaptop – Cửa Hàng Laptop Chính Hãng</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────────── -->
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">💻</span>
+      <span>TechLaptop</span>
+    </a>
+
+    <nav class="nav">
+      <a href="#home"     class="nav-link active">Trang Chủ</a>
+      <a href="#products" class="nav-link">Sản Phẩm</a>
+      <a href="#about"    class="nav-link">Về Chúng Tôi</a>
+      <a href="#contact"  class="nav-link">Liên Hệ</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Tìm kiếm laptop..." class="search-input" />
+        <button class="search-btn">🔍</button>
+      </div>
+      <button class="cart-btn" id="cartBtn" aria-label="Giỏ hàng">
+        🛒
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <a href="admin.html" class="btn btn-outline btn-sm" style="white-space:nowrap">⚙ Admin</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">✨ Hàng Chính Hãng · Bảo Hành 12 Tháng</div>
+      <h1>Laptop Hiệu Suất Cao<br><span class="highlight">Giá Tốt Nhất</span></h1>
+      <p>Khám phá bộ sưu tập laptop đa dạng từ các thương hiệu hàng đầu thế giới. Hiệu suất mạnh mẽ, thiết kế sang trọng, giá cả hợp lý.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-primary">🛒 Mua Ngay</a>
+        <a href="#about"    class="btn btn-outline">Tìm Hiểu Thêm</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Sản Phẩm</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">10K+</div>
+          <div class="stat-label">Khách Hàng</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">99%</div>
+          <div class="stat-label">Hài Lòng</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="floating-laptop">
+        <svg viewBox="0 0 460 340" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="screenBg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%"   stop-color="#0f172a"/>
+              <stop offset="100%" stop-color="#1e1b4b"/>
+            </linearGradient>
+            <linearGradient id="baseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%"   stop-color="#1e293b"/>
+              <stop offset="100%" stop-color="#0f172a"/>
+            </linearGradient>
+          </defs>
+          <!-- Screen body -->
+          <rect x="50" y="20" width="360" height="240" rx="14" fill="#1e293b"/>
+          <!-- Screen display -->
+          <rect x="60" y="30" width="340" height="220" rx="8" fill="url(#screenBg)"/>
+          <!-- Camera dot -->
+          <circle cx="230" cy="35" r="4" fill="#374151"/>
+          <!-- Code lines on screen -->
+          <rect x="78" y="58"  width="60"  height="8" rx="4" fill="#4ade80" opacity=".9"/>
+          <rect x="78" y="76"  width="100" height="8" rx="4" fill="#60a5fa" opacity=".8"/>
+          <rect x="78" y="94"  width="80"  height="8" rx="4" fill="#f59e0b" opacity=".8"/>
+          <rect x="78" y="112" width="120" height="8" rx="4" fill="#e2e8f0" opacity=".6"/>
+          <rect x="88" y="130" width="90"  height="8" rx="4" fill="#e2e8f0" opacity=".5"/>
+          <rect x="88" y="148" width="110" height="8" rx="4" fill="#e2e8f0" opacity=".5"/>
+          <rect x="78" y="166" width="70"  height="8" rx="4" fill="#4ade80" opacity=".7"/>
+          <rect x="78" y="184" width="55"  height="8" rx="4" fill="#a78bfa" opacity=".8"/>
+          <!-- Floating card overlay -->
+          <rect x="240" y="80" width="148" height="88" rx="10" fill="#2563eb" opacity=".95"/>
+          <rect x="252" y="96" width="50" height="6" rx="3" fill="#fff" opacity=".6"/>
+          <rect x="252" y="110" width="80" height="10" rx="3" fill="#fff"/>
+          <rect x="252" y="128" width="60" height="6" rx="3" fill="#4ade80"/>
+          <rect x="252" y="142" width="45" height="6" rx="3" fill="#fff" opacity=".5"/>
+          <!-- Base -->
+          <rect x="30"  y="260" width="400" height="28" rx="8"  fill="url(#baseGrad)"/>
+          <rect x="0"   y="284" width="460" height="14" rx="6"  fill="#0f172a"/>
+          <!-- Trackpad -->
+          <rect x="170" y="267" width="120" height="14" rx="5" fill="#334155"/>
+          <!-- Keyboard dots -->
+          <rect x="60"  y="270" width="30" height="6" rx="2" fill="#1e293b"/>
+          <rect x="96"  y="270" width="20" height="6" rx="2" fill="#1e293b"/>
+          <rect x="122" y="270" width="16" height="6" rx="2" fill="#1e293b"/>
+          <rect x="310" y="270" width="16" height="6" rx="2" fill="#1e293b"/>
+          <rect x="332" y="270" width="20" height="6" rx="2" fill="#1e293b"/>
+          <rect x="358" y="270" width="30" height="6" rx="2" fill="#1e293b"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FEATURES BAR ────────────────────────────────────────── -->
+<div class="features-bar">
+  <div class="container">
+    <div class="feature-item"><span class="feature-icon">🚚</span> Miễn phí vận chuyển toàn quốc</div>
+    <div class="feature-item"><span class="feature-icon">🛡️</span> Bảo hành chính hãng 12–36 tháng</div>
+    <div class="feature-item"><span class="feature-icon">🔄</span> Đổi trả trong 7 ngày</div>
+    <div class="feature-item"><span class="feature-icon">💳</span> Hỗ trợ trả góp 0%</div>
+    <div class="feature-item"><span class="feature-icon">📞</span> Tư vấn 24/7</div>
+  </div>
+</div>
+
+
+<!-- ── PRODUCTS ────────────────────────────────────────────── -->
+<section id="products">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Sản Phẩm</div>
+      <h2>Laptop Chính Hãng Đa Dạng</h2>
+      <p>Từ laptop văn phòng, gaming đến đồ họa – tất cả đều có tại TechLaptop</p>
+    </div>
+
+    <div class="products-toolbar">
+      <div class="category-filters">
+        <button class="filter-btn active" data-filter="tat-ca">Tất Cả</button>
+        <button class="filter-btn" data-filter="van-phong">💼 Văn Phòng</button>
+        <button class="filter-btn" data-filter="gaming">🎮 Gaming</button>
+        <button class="filter-btn" data-filter="do-hoa">🎨 Đồ Họa</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span id="productsCount" style="font-size:14px;color:#64748b;white-space:nowrap"></span>
+        <select id="sortSelect" class="sort-select">
+          <option value="default">Nổi bật</option>
+          <option value="price-asc">Giá tăng dần</option>
+          <option value="price-desc">Giá giảm dần</option>
+          <option value="rating">Đánh giá cao</option>
+          <option value="name-asc">Tên A–Z</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Rendered by main.js -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ── ABOUT ──────────────────────────────────────────────── -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content">
+        <div class="section-tag">Về Chúng Tôi</div>
+        <h2>Tại Sao Chọn TechLaptop?</h2>
+        <p>Với hơn 10 năm kinh nghiệm trong lĩnh vực công nghệ, TechLaptop tự hào là đối tác phân phối chính hãng của các thương hiệu laptop hàng đầu thế giới.</p>
+        <ul class="about-list">
+          <li>Laptop 100% chính hãng, có hóa đơn VAT đầy đủ</li>
+          <li>Đội ngũ kỹ thuật viên được đào tạo bởi nhà sản xuất</li>
+          <li>Bảo hành tại hơn 50 trung tâm trên toàn quốc</li>
+          <li>Tư vấn miễn phí – chọn đúng laptop cho nhu cầu</li>
+          <li>Chương trình thu cũ đổi mới với giá ưu đãi</li>
+        </ul>
+      </div>
+      <div class="about-visual">
+        <div class="about-card">
+          <div class="about-card-icon">🏆</div>
+          <h3>10+</h3>
+          <p>Năm kinh nghiệm</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">😊</div>
+          <h3>10K+</h3>
+          <p>Khách hàng hài lòng</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">🔧</div>
+          <h3>50+</h3>
+          <p>Trung tâm bảo hành</p>
+        </div>
+        <div class="about-card">
+          <div class="about-card-icon">📦</div>
+          <h3>500+</h3>
+          <p>Mẫu sản phẩm</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CONTACT ────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.8)">Liên Hệ</div>
+      <h2>Hỗ Trợ Khách Hàng</h2>
+      <p>Chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <h3>Hotline</h3>
+        <p><a href="tel:18001234">1800 1234</a></p>
+        <p style="font-size:12px;margin-top:4px">Miễn phí · 8:00 – 22:00</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <h3>Email</h3>
+        <p><a href="mailto:support@techlaptop.vn">support@techlaptop.vn</a></p>
+        <p style="font-size:12px;margin-top:4px">Phản hồi trong 2 giờ</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <h3>Showroom</h3>
+        <p>123 Nguyễn Huệ, Q.1</p>
+        <p style="font-size:12px;margin-top:4px">TP. Hồ Chí Minh</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <p>© 2025 TechLaptop. Bản quyền thuộc về TechLaptop Vietnam.</p>
+</footer>
+
+
+<!-- ── CART SIDEBAR ───────────────────────────────────────── -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>🛒 Giỏ Hàng</h3>
+    <button class="cart-close" id="cartClose">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span class="cart-total-label">Tổng cộng:</span>
+      <span class="cart-total-value" id="cartTotal">0 ₫</span>
+    </div>
+    <button class="cart-checkout-btn" id="checkoutBtn">Đặt Hàng Ngay →</button>
+  </div>
+</aside>
+
+
+<!-- ── PRODUCT DETAIL MODAL ───────────────────────────────── -->
+<div class="modal-overlay" id="productModalOverlay">
+  <div class="modal">
+    <div class="modal-header" id="productModalHeader" style="background:linear-gradient(135deg,#667eea,#764ba2)">
+      <span style="font-size:88px">💻</span>
+      <button class="modal-close" id="productModalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-brand"  id="modalBrand"></div>
+      <div class="modal-name"   id="modalName"></div>
+      <div class="modal-rating" id="modalRating"></div>
+      <div class="modal-desc"   id="modalDesc"></div>
+      <div class="modal-specs-grid" id="modalSpecs"></div>
+      <div class="modal-footer">
+        <div class="modal-price" id="modalPriceBlock"></div>
+        <div class="modal-actions">
+          <div class="qty-control">
+            <button class="qty-btn" id="qtyMinus">−</button>
+            <input type="number" class="qty-input" id="qtyInput" value="1" min="1" />
+            <button class="qty-btn" id="qtyPlus">+</button>
+          </div>
+          <button class="btn btn-primary" id="modalAddToCart">🛒 Thêm vào giỏ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── CHECKOUT MODAL ─────────────────────────────────────── -->
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="checkout-modal">
+    <div class="checkout-header">
+      <div>
+        <div style="font-size:18px;font-weight:700">📋 Đặt Hàng</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.6);margin-top:2px">Điền thông tin để hoàn tất đơn</div>
+      </div>
+      <button class="modal-close" id="checkoutClose">✕</button>
+    </div>
+
+    <!-- Order form -->
+    <div id="checkoutFormWrapper" style="padding:0">
+      <form id="checkoutForm" onsubmit="return false">
+        <div class="checkout-body">
+          <div class="checkout-summary">
+            <h4>📦 Tóm tắt đơn hàng</h4>
+            <div id="checkoutSummaryBody"></div>
+            <hr class="checkout-divider" />
+            <div class="checkout-total-row">
+              <span>Tổng thanh toán</span>
+              <span class="price" id="checkoutTotal"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="orderName">Họ và tên *</label>
+              <input class="form-input" id="orderName" placeholder="Nguyễn Văn A" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="orderPhone">Số điện thoại *</label>
+              <input class="form-input" id="orderPhone" type="tel" placeholder="0901 234 567" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="orderAddress">Địa chỉ giao hàng *</label>
+            <input class="form-input" id="orderAddress" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="orderNote">Ghi chú (tùy chọn)</label>
+            <textarea class="form-textarea" id="orderNote" placeholder="Ghi chú cho người giao hàng..."></textarea>
+          </div>
+          <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:12px;font-size:13px;color:#1e40af;margin-bottom:16px">
+            💳 Thanh toán khi nhận hàng (COD) · Hỗ trợ chuyển khoản ngân hàng
+          </div>
+          <button type="submit" class="submit-order-btn" onclick="document.getElementById('checkoutForm').dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}))">
+            ✓ Xác Nhận Đặt Hàng
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success screen -->
+    <div id="checkoutSuccessScreen" style="display:none" class="success-screen">
+      <div class="success-icon">🎉</div>
+      <h3>Đặt Hàng Thành Công!</h3>
+      <p>Mã đơn hàng của bạn: <strong id="orderCode" style="color:#2563eb"></strong></p>
+      <p>Chúng tôi sẽ liên hệ xác nhận trong vòng 30 phút. Cảm ơn bạn đã mua hàng tại TechLaptop!</p>
+      <button class="btn btn-primary" style="margin-top:20px" onclick="document.getElementById('checkoutOverlay').classList.remove('open');document.body.style.overflow=''">
+        Tiếp Tục Mua Sắm
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ── TOAST ──────────────────────────────────────────────── -->
+<div class="toast-container" id="toastContainer"></div>
+
+
+<!-- ── SCRIPTS ────────────────────────────────────────────── -->
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
